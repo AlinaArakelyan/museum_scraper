@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Museum.destroy_all
+
+scrape = Scraper.new
+museums = scrape.scrape_city_urls
+Museum.create_from_collection(museums)
